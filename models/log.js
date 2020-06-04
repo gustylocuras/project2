@@ -12,6 +12,15 @@ const logSchema = new Schema(
   }
 )
 
+logSchema.pre('save', function(next){
+  let now = new Date()
+  this.date = now
+  if(!this.date){
+    this.date = now
+  }
+  next()
+})
+
 const Log = mongoose.model('Log', logSchema)
 
 module.exports = Log

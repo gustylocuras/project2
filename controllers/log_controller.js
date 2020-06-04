@@ -66,6 +66,13 @@ logs.post('/', (req, res) => {
   })
 })
 
+//DELETE
+
+logs.delete('/:id', (req, res) => {
+  Log.findByIdAndRemove(req.params.id, (err, deletedLog) => {
+    res.redirect('/logs')
+  })
+})
 
 
 
