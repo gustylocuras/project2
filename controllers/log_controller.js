@@ -4,23 +4,35 @@ const logs = express.Router()
 
 
 
+const isAuthenticated = (req, res, next) => {
+  if (req.session.currentUser) {
+    return next()
+  } else {
+    res.redirect('/sessions/new')
+  }
+}
+
 
 
 //Routes
 
 //NEW
 
-logs.get('/new', (req, res) => {
-  res.render('logs/new.ejs')
+logs.get('/new', isAuthenticated, (req, res) => {
+  res.render('logs/new.ejs',
+                {
+                  currentUser: req.session.currentUser
+                })
 })
 
 //EDIT
 
-logs.get('/:id/edit', (req, res) => {
+logs.get('/:id/edit', isAuthenticated, (req, res) => {
   Log.findById(req.params.id, (err, foundLog) => {
     res.render('logs/edit.ejs',
                 {
-                  log: foundLog
+                  log: foundLog,
+                  currentUser: req.session.currentUser
                 })
   })
 })
@@ -36,11 +48,12 @@ logs.put('/:id', (req, res) => {
 
 //SHOW
 
-logs.get('/:id', (req, res) => {
+logs.get('/:id', isAuthenticated, (req, res) => {
   Log.findById(req.params.id, (err, foundLog) => {
     res.render('logs/show.ejs',
                 {
-                  log: foundLog
+                  log: foundLog,
+                  currentUser: req.session.currentUser
                 })
   })
 })
@@ -68,7 +81,7 @@ logs.post('/', (req, res) => {
 
 //DELETE
 
-logs.delete('/:id', (req, res) => {
+logs.delete('/:id', isAuthenticated, (req, res) => {
   Log.findByIdAndRemove(req.params.id, (err, deletedLog) => {
     res.redirect('/logs')
   })
