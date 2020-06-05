@@ -1,5 +1,6 @@
 const express = require('express')
 const Log = require('../models/log.js')
+const User = require('../models/user.js')
 const logs = express.Router()
 
 
@@ -77,8 +78,17 @@ logs.get('/', isAuthenticated, (req, res) => {
 
 logs.post('/', (req, res) => {
   req.body.user = JSON.parse(req.body.user)
-  Log.create(req.body, (err, createdLog) => {
-    res.send(req.body)
+  User.findById(req.body.user._id, (err, foundUser) => {
+    console.log(req.body.user._id);
+    Log.create(req.body, (err, createdLog) => {
+      foundUser.logs.push(createdLog)
+      console.log(foundUser);
+      foundUser.save((err, data) => {
+        res.redirect('/logs')
+      })
+
+  })
+
   })
 })
 
