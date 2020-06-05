@@ -61,11 +61,13 @@ logs.get('/:id', isAuthenticated, (req, res) => {
 
 //INDEX
 
-logs.get('/', (req, res) => {
-  Log.find({}, (err, foundLogs) => {
+logs.get('/', isAuthenticated, (req, res) => {
+  console.log(req.session.currentUser);
+  Log.find({user:req.session.currentUser._id}, (err, foundLogs) => {
     res.render('logs/index.ejs',
                 {
-                  logs: foundLogs
+                  logs: foundLogs,
+                  currentUser: req.session.currentUser
                 })
   })
 })
@@ -74,8 +76,9 @@ logs.get('/', (req, res) => {
 //CREATE
 
 logs.post('/', (req, res) => {
+  req.body.user = JSON.parse(req.body.user)
   Log.create(req.body, (err, createdLog) => {
-    res.redirect('/logs')
+    res.send(req.body)
   })
 })
 
