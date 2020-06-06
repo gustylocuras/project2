@@ -1,12 +1,12 @@
 
 <nav>
-    <div class="nav-wrapper">
+    <div class="nav-wrapper teal lighten-2">
       <a href="#!" class="brand-logo center">GlicoPal</a>
       <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-      <ul class="right hide-on-med-and-down">
+      <ul class=" list right hide-on-med-and-down">
         <li><a href="/logs/new"><i class="large material-icons">add_box</i></a></li>
         <% if (currentUser) { %>
-        <li>Welcome <%= currentUser.username %> </li>
+        <li class="left">Welcome <%= currentUser.username %> </li>
         <li>
           <form action="/sessions?_method=DELETE" method="POST">
             <input type="submit" value="Log Out" class="btn-small red" />
