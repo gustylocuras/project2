@@ -67,9 +67,9 @@ app.use('/sessions', sessionController)
 // Routes
 //___________________
 //localhost:3000
-app.get('/' , (req, res) => {
-  res.send('Hello World!');
-});
+// app.get('/' , (req, res) => {
+//   res.render('logs/index.ejs');
+// });
 
 //___________________
 //Listener
