@@ -1,3 +1,10 @@
 .list li {
   margin: 0 1em;
 }
+
+.collection-item i {
+  margin: 1%;
+}
+.collection-item h5 {
+  margin: 2.5% 1%;
+}
