@@ -66,10 +66,10 @@ app.use('/sessions', sessionController)
 //___________________
 // Routes
 //___________________
-//localhost:3000
-// app.get('/' , (req, res) => {
-//   res.render('logs/index.ejs');
-// });
+localhost:3000
+app.get('/' , (req, res) => {
+  res.redirect('/logs');
+});
 
 //___________________
 //Listener
