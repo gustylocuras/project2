@@ -2,6 +2,10 @@
   margin: 0 1em;
 }
 
+.index-date {
+  position: relative;
+}
+
 .collection-item i {
   margin: 1%;
 }
