@@ -17,6 +17,11 @@ const isAuthenticated = (req, res, next) => {
 
 //Routes
 
+//ABOUT and INTRO
+logs.get('/about', (req, res) => {
+  res.render('logs/about.ejs')
+})
+
 //NEW
 
 logs.get('/new', isAuthenticated, (req, res) => {

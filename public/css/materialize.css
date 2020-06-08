@@ -4743,8 +4743,8 @@ small {
 }
 
 .card {
-  position: relative;
-  margin: 0.5rem 0 1rem 0;
+
+  margin: 3.5rem 0% 1rem 20%;
   background-color: #fff;
   -webkit-transition: -webkit-box-shadow .25s;
   transition: -webkit-box-shadow .25s;
@@ -4888,8 +4888,11 @@ small {
   border-radius: 0 0 2px 2px;
 }
 
-.card .card-content p {
-  margin: 0;
+.card .card-content ul {
+  margin: auto;
+  text-align: center;
+  line-height: 2em;
+  font-size: 18px;
 }
 
 .card .card-content .card-title {
@@ -5147,7 +5150,7 @@ small {
   top: 0;
   pointer-events: none;
   visibility: hidden;
-  background-color: #323232;
+  background-color: #4db6ac;
 }
 
 .backdrop {

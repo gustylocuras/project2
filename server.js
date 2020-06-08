@@ -68,7 +68,7 @@ app.use('/sessions', sessionController)
 //___________________
 localhost:3000
 app.get('/' , (req, res) => {
-  res.redirect('/logs');
+  res.redirect('/logs/about');
 });
 
 //___________________
