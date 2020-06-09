@@ -14,21 +14,21 @@
 }
 
 .intro {
-
-  position: absolute;
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSs7U7sSkht0s-ydC-l3XtBlK0e7Yjd9WHXEkVOd1P9l3zKI6k0&usqp=CAU");
+  display: flex;
+  flex-direction: column;
+  position: center;
   top:200px;
   left:200px;
   z-index: 1;
 }
-.background {
-  position: relative;
-  z-index: -1;
-  width: 100%;
-  height: 90%;
-  opacity: 0.3;
-}
+
 
 .description {
+  align-self: center;
+  padding: 1em;
+  width: 60%;
+  background-color: rgba(255,255,255,.7);
   text-align: center;
   font-size: 1.5em;
 }
