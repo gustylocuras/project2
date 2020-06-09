@@ -8362,6 +8362,7 @@ input[type=range]::-ms-thumb {
 }
 
 .carousel {
+  z-index: 5;
   overflow: hidden;
   position: relative;
   width: 100%;

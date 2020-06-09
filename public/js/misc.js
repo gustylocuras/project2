@@ -2,6 +2,7 @@
 
 
 $(() => {
+  $('.carousel').carousel();
   $('.tooltipped').tooltip();
   $('.sidenav').sidenav();
   $('.fixed-action-btn').floatingActionButton();
