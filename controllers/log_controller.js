@@ -19,7 +19,7 @@ const isAuthenticated = (req, res, next) => {
 
 //ABOUT and INTRO
 logs.get('/about', (req, res) => {
-  res.render('/logs/about.ejs')
+  res.render('./logs/about.ejs')
 })
 
 //NEW
