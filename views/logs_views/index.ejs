@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+      <%- include ('../partials/head.ejs') %>
+  </head>
+  <body>
+    <nav>
+      <%- include ('../partials/nav.ejs') %>
+    </nav>
+    <div class="container">
+      <h1> <%=currentUser.username%>'s logs</h1>
+        <div class="collection">
+          <% for(let i = 0; i < logs.length; i++){ %>
+            <a href="/logs/<%=logs[i].id%>" class="collection-item avatar">
+              <% if(logs[i].glycemia > 220 || logs[i].glycemia < 90){ %>
+              <i id="chart-icon"  class="material-icons circle red">insert_chart</i>
+              <% } else if(logs[i].glycemia > 110 && logs[i].glycemia < 220 ){ %>
+                <i id="chart-icon"  class="material-icons circle green">insert_chart</i>
+              <% } else if(logs[i].glycemia > 90 && logs[i].glycemia < 110 ){ %>
+                <i id="chart-icon"  class="material-icons circle orange">insert_chart</i>
+              <% } %>
+
+              <h5>
+                <%= logs[i].glycemia %> mg/dl
+              </h5>
+              <% let rawDate = logs[i].date
+              let d = rawDate.getDate()+1
+              let m = rawDate.getMonth()+1
+              let y = rawDate.getFullYear()
+
+              function formatDate(date) {
+                  let hours = date.getHours();
+                  let minutes = date.getMinutes();
+                  let ampm = hours >= 12 ? 'pm' : 'am';
+                  hours = hours % 12;
+                  hours = hours ? hours : 12;
+                  minutes = minutes < 10 ? '0'+minutes : minutes;
+                  var readyTime = hours + ':' + minutes + ' ' + ampm;
+                  return readyTime;
+              }
+              %>
+              <spam class="index-date">
+                <%=`On ${d}/${m}/${y} at ${formatDate(logs[i].date)}`%>
+              </spam>
+            </a>
+
+
+          <% } %>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+
+  <%- include ('../partials/footer.ejs') %>
+  </body>
+</html>

@@ -19,13 +19,13 @@ const isAuthenticated = (req, res, next) => {
 
 //ABOUT and INTRO
 logs.get('/about', (req, res) => {
-  res.render('../views/logs/about.ejs')
+  res.render('logs_views/about.ejs')
 })
 
 //NEW
 
 logs.get('/new', isAuthenticated, (req, res) => {
-  res.render('logs/new.ejs',
+  res.render('logs_views/new.ejs',
                 {
                   currentUser: req.session.currentUser
                 })
@@ -35,7 +35,7 @@ logs.get('/new', isAuthenticated, (req, res) => {
 
 logs.get('/:id/edit', isAuthenticated, (req, res) => {
   Log.findById(req.params.id, (err, foundLog) => {
-    res.render('logs/edit.ejs',
+    res.render('logs_views/edit.ejs',
                 {
                   log: foundLog,
                   currentUser: req.session.currentUser
@@ -56,7 +56,7 @@ logs.put('/:id', (req, res) => {
 
 logs.get('/:id', isAuthenticated, (req, res) => {
   Log.findById(req.params.id, (err, foundLog) => {
-    res.render('logs/show.ejs',
+    res.render('logs_views/show.ejs',
                 {
                   log: foundLog,
                   currentUser: req.session.currentUser
@@ -70,7 +70,7 @@ logs.get('/:id', isAuthenticated, (req, res) => {
 logs.get('/', isAuthenticated, (req, res) => {
   console.log(req.session.currentUser);
   Log.find({user:req.session.currentUser._id}, (err, foundLogs) => {
-    res.render('logs/index.ejs',
+    res.render('logs_views/index.ejs',
                 {
                   logs: foundLogs,
                   currentUser: req.session.currentUser

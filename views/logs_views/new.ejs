@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <%- include ('../partials/head.ejs') %>
+  </head>
+  <body>
+    <nav>
+      <%- include ('../partials/nav.ejs') %>
+    </nav>
+    <div class="container">
+      <h1>new log</h1>
+      <form  action="/logs" method="POST">
+        <div class="input-field">
+          <input type="number" id="glycemia" name="glycemia" class="validate"> mg/dl
+          <label for="glycemia">glycemia</label>
+        </div> <br>
+        <div class="input-field">
+          <input type="number" id="bp" name=bp class="validate" > mmHg
+          <label for="bp">blood pressure</label>
+        </div><br>
+        <div class="input-field">
+          <input type="number"id="weight" name="weight" class="validate"> lb
+          <label for="weight">weight</label>
+        </div><br>
+        <div class="input-field">
+          <input type="text" id="insulin" name="insulin" placeholder="corrective / regular" class="validate">
+          <label for="insulin">insulin</label>
+        </div><br>
+        <div class="input-field">
+          <input type="number" id="units" name="units" class="validate">
+          <label for="units">units</label>
+        </div><br>
+        <div class="input-field">
+          <input type="date" id="date" name="date" class="validate">
+          <label for="date">date</label>
+        </div>
+        <input type="hidden" name="user" value=" <%=JSON.stringify(currentUser)%>">
+        <br>
+        <input type="submit"  value="Add Log" class="btn-small red">
+        <br>
+      </form>
+      <br>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <%- include ('../partials/footer.ejs') %>
+  </body>
+</html>

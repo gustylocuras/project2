@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <%- include ('../partials/head.ejs') %>
+  </head>
+  <body>
+
+    <nav>
+        <div class="nav-wrapper teal lighten-2">
+          <a href="#!" class="brand-logo">GlicoPal</a>
+          <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+          <ul class=" list right hide-on-med-and-down">
+
+            <li class="left">Welcome to Glicopal</li>
+
+            <li><a href="/users/new">Sign Up</a></li>
+            <li><a href="/sessions/new">Log In</a></li>
+
+          </ul>
+        </div>
+      </nav>
+
+      <ul class="sidenav" id="mobile-demo">
+        <li> Welcome to GlicoPal </li>
+        <li><a href="/users/new">Sign Up</a></li>
+        <li><a href="/sessions/new">Log In</a></li>
+      </ul>
+      <div class="about-background">
+
+        <section class="intro container">
+          <p class="description">
+          Your daily health checks made fast and easy <br>
+          Create your Account <br>
+          Add your glucose Check <br>
+          Edit anytime <br>
+          Delete anytime <br>
+          Share with your health professional <br>
+          </p>
+          <div class="carousel">
+           <a class="carousel-item" href="#one!"><img src="https://i.ibb.co/Y3PjsLJ/Screen-Shot-2020-06-09-at-9-21-07-AM.png"></a>
+           <a class="carousel-item" href="#two!"><img src="https://i.ibb.co/TcKSLhB/Screen-Shot-2020-06-09-at-9-14-08-AM.png"></a>
+           <a class="carousel-item" href="#three!"><img src="https://i.ibb.co/VBDDXcb/Screen-Shot-2020-06-09-at-9-14-30-AM.png"></a>
+           <a class="carousel-item" href="#four!"><img src="https://i.ibb.co/Jzn2p3t/Screen-Shot-2020-06-09-at-9-13-29-AM.png"></a>
+           <a class="carousel-item" href="#five!"><img src="https://i.ibb.co/mRkMNmY/Screen-Shot-2020-06-09-at-9-15-14-AM.png"></a>
+          </div>
+        </section>
+
+        <img class="background" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSs7U7sSkht0s-ydC-l3XtBlK0e7Yjd9WHXEkVOd1P9l3zKI6k0&usqp=CAU" alt="">
+      </div>
+
+
+    <%- include ('../partials/footer.ejs') %>
+  </body>
+</html>
